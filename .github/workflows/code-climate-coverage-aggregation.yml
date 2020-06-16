@@ -5,7 +5,7 @@ name: Generate/Upload all Coverage Reports
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, test-alex ]
   pull_request:
     branches: [ master ]
 
