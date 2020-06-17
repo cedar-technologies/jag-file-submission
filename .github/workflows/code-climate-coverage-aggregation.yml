@@ -93,7 +93,10 @@ jobs:
       # Formatting the BACKEND coverage reports generated
       - name: Format BACKEND coverage reports
         env:	
-          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}  
+          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}} 
+        defaults:
+          run:
+            shell: bash 
         run: |
           projectRelRegex="^\.\/(.*)\/target\/site\/jacoco\/jacoco\.xml$"
           for file in $(find . -name "jacoco.xml")
