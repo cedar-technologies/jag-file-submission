@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [ master ]
 
+defaults:
+  run:
+    shell: bash 
+
 jobs:
     java:
       env:
@@ -94,9 +98,6 @@ jobs:
       - name: Format BACKEND coverage reports
         env:	
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}} 
-        defaults:
-          run:
-            shell: bash 
         run: |
           projectRelRegex="^\.\/(.*)\/target\/site\/jacoco\/jacoco\.xml$"
           for file in $(find . -name "jacoco.xml")
